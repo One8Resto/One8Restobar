@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>One8 Restobar | Welcome</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #ffc107;
+      --secondary: #4da6ff;
+      --dark-bg: rgba(0,0,0,0.85);
+      --text-primary: white;
+      --text-secondary: rgba(255,255,255,0.7);
+      --border-light: rgba(255,255,255,0.1);
+      --font-main: 'Montserrat', sans-serif;
+      --font-accent: 'Permanent Marker', cursive;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background:
+      linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+      url("https://scontent.fceb6-1.fna.fbcdn.net/v/t39.30808-6/488922944_587177307705719_3192241748937043130_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFQ5k6C2dNfNeWOBgGy5_dCq7LjrFq3NEqrsuOsWrc0SmAN6eBnu8S4BzINIfiYAUwg3C8Rqgu58vXn0AKisviP&_nc_ohc=gnRtPZ_0XakQ7kNvwEleBWI&_nc_oc=Adp5d4gM3vqk2XgTOqxiPgdDEpG5A7XO6c1yO0YJ5L582autTu23Qs1e8wZGMWXKyWk&_nc_zt=23&_nc_ht=scontent.fceb6-1.fna&_nc_gid=I9RfunUxAjnaIGBZx6eppw&_nc_ss=7b2a8&oh=00_Af7-2jvj_bKgcFb06an5U9iOdq8dRzCEaZ7_L6MS7-0igg&oe=6A1B245F");
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: var(--dark-bg);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-link {
+      color: white !important;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover {
+      color: var(--secondary) !important;
+    }
+
+    /* HERO */
+    .hero {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 80px;
+      gap: 50px;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero h1 {
+      font-family: var(--font-accent);
+      font-size: clamp(2rem, 6vw, 4rem);
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* PHOTO */
+    .photo-box {
+      width: 420px;
+      height: 420px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* BUTTON */
+    .button {
+      display: inline-block;
+      border-radius: 7px;
+      border: none;
+      background: rgb(142, 145, 142);
+      color: black;
+      font-size: 15px;
+      font-family: var(--font-accent);
+      padding: 1em 2em;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: #9fa0a1;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* HIGHLIGHTS */
+    .highlight-section {
+      padding: 60px 20px;
+      text-align: center;
+      background: rgba(0,0,0,0.6);
+    }
+
+    .highlight-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .highlight-item {
+      width: 250px;
+    }
+
+    .highlight-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--dark-bg);
+      text-align: center;
+      padding: 12px;
+      font-size: 0.9rem;
+    }
+
+    /* 📱 MOBILE RESPONSIVE FIX */
+    @media (max-width: 768px) {
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .photo-box {
+        width: 280px;
+        height: 280px;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .highlight-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR (MOBILE READY) -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top px-3">
+  <a class="navbar-brand fw-bold" href="{{ url_for('home') }}">ONE8 RESTOBAR</a>
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navMenu">
+    <div class="ms-auto d-flex flex-column flex-lg-row gap-3">
+      <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+      <a class="nav-link" href="{{ url_for('menu') }}">Menu</a>
+      <a class="nav-link" href="{{ url_for('reservation') }}">Reservation</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+
+  <div class="hero-content">
+    <h1>Welcome to One8 Restobar</h1>
+
+    <p class="hero-description mt-3">
+      Treat your taste buds to tasty eats and drinks at One8 Restobar.
+      A perfect place for Filipino cuisine and events.
+    </p>
+
+    <a href="{{ url_for('reservation') }}">
+      <button class="button mt-3">Reserve Now</button>
+    </a>
+  </div>
+
+  <div class="photo-box">
+    <img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-6/487051603_577869795303137_5710076872219508623_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGIW59mip38D4HOM-hr0sjfHxb3biePm5ofFvduJ4-bmk5Fow_80DhBqCjKnh8AnH4ZvN2uBt_OpqjAmUqEobxV&_nc_ohc=IgeGGmaglmoQ7kNvwHERMT8&_nc_oc=AdruPh9htf9YPQ-I5TVXlhCjaYn-jjwy0RerTnuJuGz3ZGv6TjTubpfIozMC9g5E8HA&_nc_zt=23&_nc_ht=scontent.fceb2-1.fna&_nc_gid=GLY4pL0x2ouIXhlC_KOp3Q&_nc_ss=7b2a8&oh=00_Af5xYYfOkSQSkCZndXQi2NRHGpZJROBlEwvUtz88X6Jbug&oe=6A1B0D27">
+  </div>
+
+</div>
+
+<!-- HIGHLIGHTS -->
+<section class="highlight-section">
+  <h2 class="mb-4">Featured Guests</h2>
+
+  <div class="highlight-grid">
+
+    <div class="highlight-item">
+      <img src="https://scontent.fceb6-1.fna.fbcdn.net/v/t39.30808-6/469271558_10160117020612126_9041955710172645436_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeH0FfiRCzpcyRr809ya8fkDvaVfd24a8WG9pV93bhrxYT-4VlQFTn-93LO03Wg4vF5IseutY59A3Y7irGIVOces&_nc_ohc=Lyj_hg5u214Q7kNvwFBofhI&_nc_oc=Adp5VM1vfbPuKfl-tZ94cnjsa7D1YN1IjDx6pbpDFh64dGtcT1m2aa7b8_6BUhzX_wo&_nc_zt=23&_nc_ht=scontent.fceb6-1.fna&_nc_gid=N_zD48oZdyCO9cxpEZOJhg&_nc_ss=7b2a8&oh=00_Af6hMq3n5uYsRqyweI24MUPjciHq_5anwuKvV7l-opULHw&oe=6A1B24EB">
+      <p>Mardin Keith</p>
+    </div>
+
+    <div class="highlight-item">
+      <img src="https://scontent.fceb2-2.fna.fbcdn.net/v/t39.30808-6/481247685_559387650484685_5867017854493219308_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEj1hwc3mAzMGrWlzHo2pE7C04-0WCCH9sLTj7RYIIf2wuYNzPGdIFtWQnIlBOwNN0XPGTcQ8n_T2cvQOA8HWBW&_nc_ohc=hXZq2GcCx-EQ7kNvwEhNexE&_nc_oc=AdpdUiaCwXj-xBLp3WWeKnWpMX1DvAYLnlUVrZVXVHS_A7yvsFHpLgByNx31oc2KgXw&_nc_zt=23&_nc_ht=scontent.fceb2-2.fna&_nc_gid=S95SsbwrU-e9nMymnktqkA&_nc_ss=7b2a8&oh=00_Af5oGasbv6LKYKt72wJlYozbSiuPd7zW9sz8CXcc8Xb9iA&oe=6A1B1E46">
+      <p>Manny Pacquiao</p>
+    </div>
+
+    <div class="highlight-item">
+      <img src="https://scontent.fceb6-1.fna.fbcdn.net/v/t39.30808-6/482020949_692175496471903_5768861569094535897_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFzHbq9k5dEr-YWDSVml4m-nUz06O6S94qdTPTo7pL3ikIg-F5md-XsqREo3w354KNIx6fn5heR3rBC3UTza1p7&_nc_ohc=ZSHPBKoxgZEQ7kNvwGhOvyw&_nc_oc=Adq1hnZwCHllTHOSMIDRT_RYV63JoHmfd7PXaTSJ9-gRfictfYtwP0GgWz9iDEZPMwE&_nc_zt=23&_nc_ht=scontent.fceb6-1.fna&_nc_gid=iTNwW-q4oQm9pVZ8q4hTBw&_nc_ss=7b2a8&oh=00_Af7gnfjY66_ZtEnaFhOez43tJdUEpXoV-og5kRXvv0MxeA&oe=6A1B2B26">
+      <p>Soul 8</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © 2026 One8 Restobar | All Rights Reserved
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
